@@ -24,6 +24,8 @@ RUN apt-get update && apt-get install -my \
   php5-mcrypt \
   php5-sqlite \
   php5-xdebug \
+  php-soap \
+  libxml2-dev \
   php-apc
 
 # Ensure that PHP5 FPM is run as root.
@@ -51,6 +53,7 @@ RUN apt-get update && apt-get install -y hhvm
 COPY conf/nginx.conf /etc/nginx/
 COPY conf/supervisord.conf /etc/supervisor/conf.d/
 COPY conf/php.ini /etc/php5/fpm/conf.d/40-custom.ini
+COPY conf/php_browscap.ini /etc/php5/fpm/php_browscap.ini
 
 ################################################################################
 # Volumes
